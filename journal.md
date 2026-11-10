@@ -1,0 +1,2 @@
+# Phase 1
+The PriorityQueue knows which company is smallest because Company implements Comparable and compares companies using their size. To merge the largest companies first, I would reverse the comparison order.
