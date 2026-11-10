@@ -15,12 +15,20 @@ public class Main {
         market.add(new Company("Aperture Science", 3000));
         market.add(new Company("Oscorp", 12000));
 
-        Company smallest = market.poll();
+        while (market.size() >= 2) {
+            Company companyA = market.poll();
+            Company companyB = market.poll();
 
-        System.out.println("Smallest company: " + smallest);
+            int newSize = (int) ((companyA.getSize() + companyB.getSize()) * 1.1);
+            String newName = companyA.getName() + "-" + companyB.getName();
 
-        market.add(smallest);
+            Company merged = new Company(newName, newSize);
 
-        System.out.println("\nCompanies in the market: " + market.size());
+            System.out.println("MERGER: " + companyA.getName() + " and "
+                    + companyB.getName() + " have merged into "
+                    + merged.getName() + " with size " + merged.getSize() + "!");
+
+            market.add(merged);
+        }
     }
 }
